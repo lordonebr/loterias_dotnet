@@ -1,0 +1,50 @@
+﻿@model TipoJogoIndexViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Adicionar">Novo tipo de jogo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => Model.TipoJogos.FirstOrDefault().Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.TipoJogos.FirstOrDefault().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.TipoJogos.FirstOrDefault().Quantity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TipoJogos) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id= item.Id }) |
+                @Html.ActionLink("Excluir", "Excluir", new { id = item.Id })
+                <Excluir Url="@Url.Action("Excluir", "TipoJogo", new { id = item.Id })"></Excluir>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<p>Quantidade de jogos: @Model.QtTiposJogos</p>
+<p>Quantidade de jogos com menos de 10 dezenas: @Model.QtJogosMenos10Dezenas</p>
