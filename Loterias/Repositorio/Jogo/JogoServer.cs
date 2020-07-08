@@ -16,6 +16,13 @@ namespace Loterias.Repositorio
             _context = context;
         }
 
+        public void AdicionarJogo(Jogo jogo)
+        {
+            this._context.Jogo.Add(jogo);
+            this._context.Entry(jogo).State = Microsoft.EntityFrameworkCore.EntityState.Added;
+            this._context.SaveChanges();
+        }
+
         public List<Jogo> GetJogos()
         {
             _context.TipoJogo.ToList();
@@ -26,5 +33,7 @@ namespace Loterias.Repositorio
         {
             throw new NotImplementedException();
         }
+
+
     }
 }

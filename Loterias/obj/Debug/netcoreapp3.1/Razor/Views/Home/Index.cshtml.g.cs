@@ -21,13 +21,13 @@ using Loterias;
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\andre.santos\source\repos\Aula\Loterias\Views\_ViewImports.cshtml"
-using Loterias.Models;
+using Loterias.ViewModel;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"99464617055fdb505bb0bb7fd91f9b14f7b0d030", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"26e1877bfd1a04de0e4f2f818ee72b812c383c52", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f2ae2a13afb4e462c9a30cb91839f6379096f606", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

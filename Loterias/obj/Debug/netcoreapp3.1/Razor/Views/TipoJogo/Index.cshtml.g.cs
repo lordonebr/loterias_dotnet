@@ -21,13 +21,13 @@ using Loterias;
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\andre.santos\source\repos\Aula\Loterias\Views\_ViewImports.cshtml"
-using Loterias.Models;
+using Loterias.ViewModel;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5efe5f97060c1de741af82d7b37c0db44af481b8", @"/Views/TipoJogo/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"26e1877bfd1a04de0e4f2f818ee72b812c383c52", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f2ae2a13afb4e462c9a30cb91839f6379096f606", @"/Views/_ViewImports.cshtml")]
     public class Views_TipoJogo_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<TipoJogoIndexViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Adicionar", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -66,7 +66,7 @@ using Loterias.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<h1>Index</h1>\r\n\r\n<p>\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5efe5f97060c1de741af82d7b37c0db44af481b83746", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5efe5f97060c1de741af82d7b37c0db44af481b83749", async() => {
                 WriteLiteral("Novo tipo de jogo");
             }
             );
@@ -154,7 +154,7 @@ using Loterias.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("Excluir", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5efe5f97060c1de741af82d7b37c0db44af481b87859", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("Excluir", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5efe5f97060c1de741af82d7b37c0db44af481b87862", async() => {
             }
             );
             __Loterias_TagHelpers_ExcluirTagHelper = CreateTagHelper<global::Loterias.TagHelpers.ExcluirTagHelper>();

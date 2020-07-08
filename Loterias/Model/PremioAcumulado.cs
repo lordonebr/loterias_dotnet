@@ -1,6 +1,6 @@
 ﻿public enum PremioAcumulado
 {
-    Sim,
-    Nao,
-    NA
+    Sim = 1,
+    Nao = 2,
+    NA = 3
 }

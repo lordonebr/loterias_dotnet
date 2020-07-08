@@ -1,6 +1,6 @@
 ﻿using Loteria.Model;
-using Loterias.Models;
 using Loterias.Repositorio;
+using Loterias.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

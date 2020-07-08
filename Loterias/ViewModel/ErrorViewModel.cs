@@ -1,6 +1,6 @@
 using System;
 
-namespace Loterias.Models
+namespace Loterias.ViewModel
 {
     public class ErrorViewModel
     {
