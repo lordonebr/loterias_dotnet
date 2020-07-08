@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Tipo de jogos</h1>
 
 <p>
-    <a asp-action="Adicionar">Novo tipo de jogo</a>
+    <a asp-action="Adicionar" class="btn btn-primary">Cadastrar</a>
 </p>
 <table class="table">
     <thead>
@@ -38,7 +38,6 @@
             </td>
             <td>
                 @Html.ActionLink("Editar", "Editar", new { id= item.Id }) |
-                @Html.ActionLink("Excluir", "Excluir", new { id = item.Id })
                 <Excluir Url="@Url.Action("Excluir", "TipoJogo", new { id = item.Id })"></Excluir>
             </td>
         </tr>
@@ -46,5 +45,5 @@
     </tbody>
 </table>
 
-<p>Quantidade de jogos: @Model.QtTiposJogos</p>
-<p>Quantidade de jogos com menos de 10 dezenas: @Model.QtJogosMenos10Dezenas</p>
+<p style="font-weight: bold">Quantidade de jogos: @Model.QtTiposJogos</p>
+<p style="font-weight: bold">Quantidade de jogos com menos de 10 dezenas: @Model.QtJogosMenos10Dezenas</p>
