@@ -18,6 +18,7 @@ namespace Loterias.Repositorio
 
         public List<Jogo> GetJogos()
         {
+            _context.TipoJogo.ToList();
             return _context.Jogo.ToList();
         }
 
