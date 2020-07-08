@@ -56,7 +56,7 @@
             </td>
             <td>
                 @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
-                @Html.ActionLink("Excluir", "Excluir", new { id = item.Id })
+                <Excluir Url="@Url.Action("Excluir", "Jogos", new { id = item.Id })"></Excluir>
             </td>
         </tr>
 }

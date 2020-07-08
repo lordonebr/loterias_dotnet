@@ -162,3 +162,4 @@ C:\Users\andre.santos\source\repos\Aula\Loterias\obj\Debug\netcoreapp3.1\Razor\V
 C:\Users\andre.santos\source\repos\Aula\Loterias\obj\Debug\netcoreapp3.1\Razor\Views\TipoJogo\Editar.cshtml.g.cs
 C:\Users\andre.santos\source\repos\Aula\Loterias\obj\Debug\netcoreapp3.1\Razor\Views\Jogos\Index.cshtml.g.cs
 C:\Users\andre.santos\source\repos\Aula\Loterias\obj\Debug\netcoreapp3.1\Razor\Views\Jogos\Adicionar.cshtml.g.cs
+C:\Users\andre.santos\source\repos\Aula\Loterias\obj\Debug\netcoreapp3.1\Loterias.csprojAssemblyReference.cache

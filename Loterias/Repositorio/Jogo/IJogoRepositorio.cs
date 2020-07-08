@@ -12,5 +12,6 @@ namespace Loterias.Repositorio
 
         public List<Jogo> GetMegaSenaJogos();
         void AdicionarJogo(Jogo jogo);
+        void ExcluirJogo(string id);
     }
 }

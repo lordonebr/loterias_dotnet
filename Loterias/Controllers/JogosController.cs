@@ -40,5 +40,12 @@ namespace Loterias.Controllers
             jogoRepositorio.AdicionarJogo(jogoVM.Jogo);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public IActionResult Excluir(string id, [FromServices] IJogoRepositorio jogoRepositorio)
+        {
+            jogoRepositorio.ExcluirJogo(id);
+            return RedirectToAction("Index");
+        }
     }
 }

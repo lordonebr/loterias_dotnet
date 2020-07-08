@@ -23,6 +23,18 @@ namespace Loterias.Repositorio
             this._context.SaveChanges();
         }
 
+        public void ExcluirJogo(string id)
+        {
+            Jogo jogo = GetJogo(id);
+            this._context.Entry(jogo).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+            this._context.SaveChanges();
+        }
+
+        public Jogo GetJogo(string id)
+        {
+            return _context.Jogo.Where(j => j.Id.ToString().Equals(id)).FirstOrDefault();
+        }
+
         public List<Jogo> GetJogos()
         {
             _context.TipoJogo.ToList();
