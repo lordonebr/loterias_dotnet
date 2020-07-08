@@ -22,7 +22,6 @@ namespace Loterias.Controllers
         {
             JogoViewModel vm = new JogoViewModel();
             vm.Jogo = new Jogo();
-            vm.Jogo.TipoJogo = new TipoJogo();
             vm.Jogo.DataConcurso = DateTime.Now;
             vm.Jogo.PremioAcumulado = PremioAcumulado.NA;
 
@@ -38,6 +37,28 @@ namespace Loterias.Controllers
         {
             jogoVM.Jogo.TipoJogo = tipoJogoRepositorio.GetTipoJogo(jogoVM.CodigoTipoJogo);
             jogoRepositorio.AdicionarJogo(jogoVM.Jogo);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Editar(string id, [FromServices] IJogoRepositorio jogoRepositorio, [FromServices] ITipoJogoRepositorio tipoJogoRepositorio)
+        {
+            JogoViewModel vm = new JogoViewModel();
+            vm.Jogo = jogoRepositorio.GetJogo(id);
+
+            vm.CodigoTipoJogo = vm.Jogo.TipoJogo.Id.ToString();
+            List<TipoJogo> tipoJogos = tipoJogoRepositorio.GetTiposJogo();
+            foreach (TipoJogo item in tipoJogos)
+                vm.OptionsTipoJogo.Add(item.Id.ToString(), item.Name);
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(JogoViewModel jogoVM, [FromServices] IJogoRepositorio jogoRepositorio, [FromServices] ITipoJogoRepositorio tipoJogoRepositorio)
+        {
+            jogoVM.Jogo.TipoJogo = tipoJogoRepositorio.GetTipoJogo(jogoVM.CodigoTipoJogo);
+            jogoRepositorio.AtualizaJogo(jogoVM.Jogo);
             return RedirectToAction("Index");
         }
 

@@ -23,6 +23,13 @@ namespace Loterias.Repositorio
             this._context.SaveChanges();
         }
 
+        public void AtualizaJogo(Jogo jogo)
+        {
+            this._context.Jogo.Add(jogo);
+            this._context.Entry(jogo).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            this._context.SaveChanges();
+        }
+
         public void ExcluirJogo(string id)
         {
             Jogo jogo = GetJogo(id);
@@ -32,6 +39,7 @@ namespace Loterias.Repositorio
 
         public Jogo GetJogo(string id)
         {
+            _context.TipoJogo.ToList();
             return _context.Jogo.Where(j => j.Id.ToString().Equals(id)).FirstOrDefault();
         }
 

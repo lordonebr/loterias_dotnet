@@ -1,0 +1,65 @@
+﻿@model JogoViewModel
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Editar</h1>
+
+<h4>Jogo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Editar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Jogo.Id" type="hidden" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="CodigoTipoJogo" class="control-label"></label>
+                <select asp-for="CodigoTipoJogo" class="form-control">
+                    @foreach (KeyValuePair<string, string> opt in Model.OptionsTipoJogo)
+                    {
+                        <option value="@opt.Key"> @opt.Value </option>
+                    }
+                </select>
+                <span asp-validation-for="CodigoTipoJogo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Jogo.DataConcurso" class="control-label"></label>
+                <input asp-for="Jogo.DataConcurso" class="form-control" />
+                <span asp-validation-for="Jogo.DataConcurso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Jogo.NumeroConcurso" class="control-label"></label>
+                <input asp-for="Jogo.NumeroConcurso" class="form-control" />
+                <span asp-validation-for="Jogo.NumeroConcurso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Jogo.DezenasSorteadas" class="control-label"></label>
+                <input asp-for="Jogo.DezenasSorteadas" class="form-control" />
+                <span asp-validation-for="Jogo.DezenasSorteadas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Jogo.PremioAcumulado" class="control-label"></label>
+                <select asp-for="Jogo.PremioAcumulado" class="form-control">
+                    @foreach (KeyValuePair<int, string> opt in Model.OptionsPremioAcumulado)
+                    {
+                        <option value="@opt.Key"> @opt.Value </option>
+                    }
+                </select>
+                <span asp-validation-for="Jogo.PremioAcumulado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
