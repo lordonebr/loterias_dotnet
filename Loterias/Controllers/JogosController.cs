@@ -5,12 +5,15 @@ using System.Threading.Tasks;
 using Loteria.Model;
 using Loterias.Repositorio;
 using Loterias.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Loterias.Controllers
 {
+    [Authorize]
     public class JogosController : Controller
     {
+        [AllowAnonymous]
         public IActionResult Index([FromServices] IJogoRepositorio jogoRepositorio)
         {
             List<Jogo> jogos = jogoRepositorio.GetJogos();
@@ -18,6 +21,7 @@ namespace Loterias.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Manager")]
         public IActionResult Adicionar([FromServices] ITipoJogoRepositorio tipoJogoRepositorio)
         {
             JogoViewModel vm = new JogoViewModel();
@@ -40,6 +44,7 @@ namespace Loterias.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Manager")]
         public IActionResult Adicionar(JogoViewModel jogoVM, [FromServices] IJogoRepositorio jogoRepositorio, [FromServices] ITipoJogoRepositorio tipoJogoRepositorio)
         {
             jogoVM.Jogo.TipoJogo = tipoJogoRepositorio.GetTipoJogo(jogoVM.CodigoTipoJogo);
@@ -48,6 +53,7 @@ namespace Loterias.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Manager")]
         public IActionResult Editar(string id, [FromServices] IJogoRepositorio jogoRepositorio, [FromServices] ITipoJogoRepositorio tipoJogoRepositorio)
         {
             JogoViewModel vm = new JogoViewModel();
@@ -62,6 +68,7 @@ namespace Loterias.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Manager")]
         public IActionResult Editar(JogoViewModel jogoVM, [FromServices] IJogoRepositorio jogoRepositorio, [FromServices] ITipoJogoRepositorio tipoJogoRepositorio)
         {
             jogoVM.Jogo.TipoJogo = tipoJogoRepositorio.GetTipoJogo(jogoVM.CodigoTipoJogo);
@@ -70,6 +77,7 @@ namespace Loterias.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Manager")]
         public IActionResult Excluir(string id, [FromServices] IJogoRepositorio jogoRepositorio)
         {
             jogoRepositorio.ExcluirJogo(id);

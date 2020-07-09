@@ -1,6 +1,7 @@
 ﻿using Loteria.Model;
 using Loterias.Repositorio;
 using Loterias.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,8 +10,10 @@ using System.Threading.Tasks;
 
 namespace Loterias.Controllers
 {
+    [Authorize]
     public class TipoJogoController : Controller
     {
+        [AllowAnonymous]
         public IActionResult Index([FromServices] ITipoJogoRepositorio tipoJogoRepositorio)
         {
             TipoJogoIndexViewModel model = new TipoJogoIndexViewModel();
@@ -23,12 +26,14 @@ namespace Loterias.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Manager")]
         public IActionResult Adicionar()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles = "Manager")]
         public IActionResult Adicionar(TipoJogo tipoJogo, [FromServices] ITipoJogoRepositorio tipoJogoRepositorio)
         {
             tipoJogoRepositorio.AdicionarTipoJogo(tipoJogo);
@@ -36,6 +41,7 @@ namespace Loterias.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Manager")]
         public IActionResult Editar(string id, [FromServices] ITipoJogoRepositorio tipoJogoRepositorio)
         {
             TipoJogo tipoJogo = tipoJogoRepositorio.GetTipoJogo(id);
@@ -43,6 +49,7 @@ namespace Loterias.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Manager")]
         public IActionResult Editar(TipoJogo tipoJogo, [FromServices] ITipoJogoRepositorio tipoJogoRepositorio)
         {
             tipoJogoRepositorio.AtualizaTipoJogo(tipoJogo);
@@ -50,6 +57,7 @@ namespace Loterias.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult Excluir(string id, [FromServices] ITipoJogoRepositorio tipoJogoRepositorio)
         {
             tipoJogoRepositorio.ExcluirTipoJogo(id);
