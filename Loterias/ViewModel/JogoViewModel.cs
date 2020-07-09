@@ -23,8 +23,6 @@ namespace Loterias.ViewModel
             OptionsTipoJogo = new Dictionary<string, string>();
         }
 
-        public List<Jogo> Jogos { get; set; }
-
         public Jogo Jogo { get; set; }
 
         public Dictionary<int, string> OptionsPremioAcumulado { get; set; }
