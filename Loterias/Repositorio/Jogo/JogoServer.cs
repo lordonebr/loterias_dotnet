@@ -51,9 +51,9 @@ namespace Loterias.Repositorio
 
         public List<Jogo> GetMegaSenaJogos()
         {
-            throw new NotImplementedException();
+            _context.TipoJogo.ToList();
+            return _context.Jogo.Where(j => j.TipoJogo.Name.Equals("Mega Sena")).ToList();
         }
-
 
     }
 }

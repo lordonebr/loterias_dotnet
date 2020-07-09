@@ -28,5 +28,15 @@ namespace Loterias.Controllers
             List<TipoJogo> tipoJogos = _tipoJogoRepositorio.GetTiposJogo();
             return tipoJogos.Select(tj => tj.TipoJogoFormated()).ToList();
         }
+
+        public IEnumerable<Jogo> GetJogos([FromServices] IJogoRepositorio jogoRepositorio)
+        {
+            return jogoRepositorio.GetJogos();
+        }
+
+        public IEnumerable<Jogo> GetMegaSena([FromServices] IJogoRepositorio jogoRepositorio)
+        {
+            return jogoRepositorio.GetMegaSenaJogos();
+        }
     }
 }
