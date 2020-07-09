@@ -38,7 +38,14 @@ namespace Loterias.Controllers
         {
             return jogoRepositorio.GetMegaSenaJogos();
         }
+        public IEnumerable<int> GetResultadoMegaSena(int numeroConcurso, [FromServices] IJogoRepositorio jogoRepositorio)
+        {
+            List<int> resultado = new List<int>();
+            Jogo jogo = jogoRepositorio.GetMegaSenaJogos().Where(j => j.NumeroConcurso == numeroConcurso).ToList().FirstOrDefault();
+            if(jogo != null)
+                resultado = jogo.DezenasJogo();
 
-        
+            return resultado;
+        }
     }
 }
