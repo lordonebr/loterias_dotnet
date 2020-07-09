@@ -38,5 +38,7 @@ namespace Loterias.Controllers
         {
             return jogoRepositorio.GetMegaSenaJogos();
         }
+
+        
     }
 }

@@ -1,0 +1,57 @@
+﻿@model Loteria.Model.Jogo
+
+@{
+    ViewData["Title"] = "Detalhar";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Jogo</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.TipoJogo.Name)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.TipoJogo.Name)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.DataConcurso)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.DataConcurso)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.NumeroConcurso)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.NumeroConcurso)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.DezenasSorteadas)
+        </dt>
+        <dd class="col-sm-9">
+            @foreach (string dezena in Model.DezenasSorteadas.Split("-"))
+            {
+                <span class="border border-dark rounded-circle p-1 font-weight-bold">@dezena</span>
+            }
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.PremioAcumulado)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.PremioAcumulado)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }) |
+    <a asp-action="Index">Voltar</a>
+</div>

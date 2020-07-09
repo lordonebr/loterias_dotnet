@@ -32,6 +32,13 @@ namespace Loterias.Controllers
             return View(vm);
         }
 
+        [HttpGet]
+        public IActionResult Detalhar(string id, [FromServices] IJogoRepositorio jogoRepositorio)
+        {
+            Jogo jogo = jogoRepositorio.GetJogo(id);
+            return View(jogo);
+        }
+
         [HttpPost]
         public IActionResult Adicionar(JogoViewModel jogoVM, [FromServices] IJogoRepositorio jogoRepositorio, [FromServices] ITipoJogoRepositorio tipoJogoRepositorio)
         {

@@ -24,12 +24,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.NumeroConcurso)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DezenasSorteadas)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PremioAcumulado)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -49,12 +43,7 @@
                 @Html.DisplayFor(modelItem => item.NumeroConcurso)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DezenasSorteadas)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PremioAcumulado)
-            </td>
-            <td>
+                @Html.ActionLink("Detalhar", "Detalhar", new { id = item.Id }) |
                 @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
                 <Excluir Url="@Url.Action("Excluir", "Jogos", new { id = item.Id })"></Excluir>
             </td>
