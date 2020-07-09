@@ -55,6 +55,15 @@ namespace Loterias.Controllers
             tipoJogoRepositorio.ExcluirTipoJogo(id);
             return RedirectToAction("Index");
         }
+
+        public ActionResult JogoDuplicado(string name, [FromServices] ITipoJogoRepositorio tipoJogoRepositorio)
+        {
+            bool nomeValido = false;
+
+            nomeValido = !tipoJogoRepositorio.NomeJogoJaUtilizado(name);
+
+            return Json(nomeValido);
+        }
     }
 
 }

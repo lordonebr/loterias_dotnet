@@ -10,5 +10,6 @@ namespace Loterias.Repositorio
         void AtualizaTipoJogo(TipoJogo tipoJogo);
         void ExcluirTipoJogo(string id);
         TipoJogo GetTipoJogo(string id);
+        bool NomeJogoJaUtilizado(string nomeJogo);
     }
 }

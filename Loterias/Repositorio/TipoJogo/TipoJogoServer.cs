@@ -46,5 +46,10 @@ namespace Loterias.Repositorio
         {
             return _context.TipoJogo.Where(tj => tj.Id.ToString().Equals(id)).FirstOrDefault();
         }
+
+        public bool NomeJogoJaUtilizado(string nomeJogo)
+        {
+            return _context.TipoJogo.Where(tj => tj.Name.Equals(nomeJogo)).ToList().Count() > 0;
+        }
     }
 }
