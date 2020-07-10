@@ -1,5 +1,6 @@
 ﻿using Loteria.Model;
 using Loterias.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,8 +46,9 @@ namespace Loterias.Repositorio
 
         public List<Jogo> GetJogos()
         {
-            _context.TipoJogo.ToList();
-            return _context.Jogo.ToList();
+            //_context.TipoJogo.ToList();
+            //return _context.Jogo.ToList();
+            return _context.Jogo.Include(j => j.TipoJogo).ToList();
         }
 
         public List<Jogo> GetMegaSenaJogos()
